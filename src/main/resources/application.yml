@@ -1,1 +1,13 @@
+spring:
+  h2:
+    console:
+      enabled: true
 
+  datasource:
+    url: jdbc:h2:mem:showbooking
+  main:
+    banner-mode: off
+
+logging:
+  level:
+    root: off
