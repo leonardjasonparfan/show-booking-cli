@@ -24,6 +24,7 @@
 - Right click Application.java and select `Run Application`
 
 ### How to generate executable
+- For Windows machines, additional setup is required. See [this](https://www.graalvm.org/jdk17/docs/getting-started/windows/) for more information.
 - Run `./mvnw clean package`
 - Run `mvn -Pnative native:compile`
 - Executable file should be inside target folder
