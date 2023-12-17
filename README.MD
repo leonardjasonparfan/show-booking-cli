@@ -4,6 +4,7 @@
 - Using the `Availability` command will show all available seats including those that were cancelled.
 - The `Cancel` command will only cancel tickets that are not yet cancelled.
 - In the `Setup` command, the cancellation window in minutes is of type BigDecimal to allow for decimal values.
+- If the ticket is cancelled, the seat will be available for booking again. Same phone number can be used to book any seats in the show.
 
 ### How to use
 - This app is developed using Spring Shell. The list of available commands can be seen by typing `help` in the console.
