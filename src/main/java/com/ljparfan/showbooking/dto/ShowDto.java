@@ -12,22 +12,20 @@ public record ShowDto(Long id, String showNumber, List<SeatDto> purchasedSeats) 
                                 "name", seatDto.name(),
                                 "ticketNumber", seatDto.ticketNumber()
                         ), Collectors.toList())));
-        return STR."""
-                Show Number:\{showNumber()}
+
+        return """
+                Show Number: %s
                 Purchased Seats:
-                    \{resultMap.entrySet().isEmpty() ? "No seats purchased" : resultMap.entrySet().stream()
-                .map(entry -> STR."""
-                                    User Phone Number: \{entry.getKey()}
-                                    \tTicket Number: \{entry.getValue().get(0).get("ticketNumber")}
-                                    \tSeats: \{entry.getValue().stream()
-                        .map(seat -> seat.get("name"))
-                        .collect(Collectors.joining(","))}
-                                    """)
-                .collect(Collectors.joining("\n"))}
-                """;
+                    %s
+                """.formatted(showNumber, resultMap.entrySet().stream().map(entry -> """
+                \t\tUser Phone Number: %s
+                        \tTicket Number: %s
+                        \tPurchased Seats: %s
+                        """.formatted(entry.getKey(), entry.getValue().get(0).get("ticketNumber"), entry.getValue().stream().map(item -> item.get("name")).collect(Collectors.joining(", ")))).collect(Collectors.joining("\n")));
+
     }
 
     public String formattedCreateShowResponse() {
-        return STR."Show \{showNumber} set up successful.";
+        return "Show %s set up successful.".formatted(showNumber);
     }
 }

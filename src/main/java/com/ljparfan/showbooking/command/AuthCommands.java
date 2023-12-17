@@ -15,6 +15,6 @@ public class AuthCommands extends AppCommands {
     @ShellMethod(value = "Login as 'user' or 'admin'.", group = "Auth Commands", key = "Auth")
     public String auth(@Option(longNames = "Login as 'user' or 'admin'.")  @Pattern(regexp = "^(admin|user)$", message = "Role must be either 'admin' or 'user'") String userType) {
         authService.setCurrentUserType(UserType.valueOf(userType.toUpperCase()));
-        return STR."Login as \{ userType } successful.";
+        return "Login as %s successful.".formatted(userType);
     }
 }
